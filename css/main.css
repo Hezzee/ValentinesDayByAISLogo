@@ -1,0 +1,338 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f98fa1;
+    overflow: hidden;
+}
+
+
+.heart_body{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding-top: 5rem;
+    
+}
+/*----движушиеся елементы------------------------------------------------------------------------*/
+
+.runer_element{
+    position: absolute;
+    z-index: -1;
+    width: 7rem;
+    transition: 2s ease;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+}
+
+
+/*----кнопка-------------------------------------------------*/
+.bubbly-button{
+    z-index: -1;
+    position: absolute;
+    top: 56%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 30rem;
+    height: 30rem;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg,#DC143C,#FF69B4,#FFC0CB,#C71585,#FA8072,#B22222,#DB7093);
+    animation: animateBG 10s ease-in infinite;
+    background-size: 200%;
+    box-shadow: 0px 0px 73px 13px rgba(255, 96, 187, 1);   
+}
+
+.bubbly-button :hover{
+    transform: translate(0,-20px);
+    transition: 0.5s;
+}
+
+
+
+
+/*----средце-------------------------------------------------*/
+.heart{
+    cursor: pointer;
+    transition: all 1s;
+    overflow: visible;
+    animation: heartAnimation 2s ease-in infinite;
+}
+
+
+
+
+
+/*----сообщение----------------------------------------------------------------*/
+.massage {
+    border: 2.5px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    width: 13rem;
+    height: 3rem;
+    margin: 0;
+    position: absolute;
+    top: 2%;
+    left: 67%;
+    animation: heartAnimation 2s ease-in infinite;
+    
+}
+.massage p{
+    font-size: 30px;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+}
+
+.massage::before, .massage::after {
+    content: ''; 
+    position: absolute;
+    left: 20px; 
+    bottom: -21px;
+    border: 10px solid transparent;
+    border-top: 10px solid black;
+}
+
+.massage::after {
+    border-top: 10px solid #f98fa1;
+    bottom: -18px; 
+}
+
+/*----попап окно---------------------------------------------------------------------*/
+
+
+.popupbg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.511);
+    display: none;
+}
+
+.popup{
+    transition: 1s ease-in;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40rem;
+    padding: 20px;
+    transform: translate(-50%,-50%);
+    padding-top: 60px;
+    border-radius: 25px;
+    overflow: visible;
+}
+
+
+
+.popup_text{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 59%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.popup_text2{
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.8rem;
+    position: absolute;
+    top: 70%;
+    left: 47%;
+    transform: translate(-50%,-50%);
+}
+
+.close_popup{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+
+
+
+/*----logoAIS---------------------------------------------------------------*/
+.logoAIS{
+    width: 7rem;
+    padding-left: 10rem;
+}
+
+
+
+/*----сердечки попап окна---------------------------------------------------------------------------------------------*/
+
+
+.popup_bg_heart{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    transition: 1s ease;
+    animation: blink 3s infinite;
+}
+
+/*----анимация для мегания сердец на бг попап окна-------------------------------------------------------------------------------------*/
+@keyframes blink {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/*----анимация для градиента на бекграунде-------------------------------------------------*/
+
+@keyframes animateBG{
+    0%{
+        background-position: 0;
+    }
+    50%{
+        background-position: 100%;
+    }
+    100%{
+        background-position: 0%;
+    }
+}
+
+/*----анимация для сердца-------------------------------------------------*/
+@keyframes heartAnimation {
+    0%{
+        transform: translate(0,0);
+    }
+    50%{
+        transform: translate(0,-20px);
+    }
+    100%{
+        transform: translate(0,0);
+    }
+}
+
+
+
+/*----адоптация---------------------------------------------------------------------------*/
+
+
+@media screen and (max-width: 1400px) {
+    .popup_text2{
+        left: 45%;
+    }
+}
+
+
+
+
+
+
+
+@media screen and (max-width: 900px) {
+    body{
+        overflow: hidden;
+        
+    }
+    .close_popup{
+        top: 40px;
+        right: 40px;
+    }
+    .popup{
+        width: 30rem;
+    }
+    .popup_text{
+        font-size: 1.4rem;
+        top: 55%;
+    }
+    .popup_text2{
+        font-size: 1.4rem;
+        top: 65%;
+    }
+
+    .bubbly-button{
+        width: 30rem;
+        height: 30rem;
+    }
+    .heart{
+        width: 30rem;
+        height: 30rem;
+    }
+    .massage{
+        top: 1%;
+        left: 62%;
+        width: 13rem;
+        height: 3rem;
+        
+    }
+    .massage p{
+        font-size: 30px;
+        font-weight: 900;
+    }
+
+    .logoAIS{
+        width: 5rem;
+        padding-left: 8rem;
+    }
+
+} 
+
+
+
+@media screen and (max-width: 540px) {
+    body{
+        overflow: hidden;
+    }
+    .popup{
+        width: 20rem;
+    }
+    .popup_text{
+        font-size: 0.9rem;
+        
+    }
+    .popup_text2{
+        font-size: 0.9rem;
+        top: 65%;
+    }
+
+    .logoAIS{
+        width: 3rem;
+        padding-left: 5rem;
+    }
+
+    .bubbly-button{
+        width: 20rem;
+        height: 20rem;
+    }
+    .heart{
+        width: 20rem;
+        height: 20rem;
+    }
+    .massage{
+        top: 6%;
+        left: 54%;
+        width: 10rem;
+        height: 2rem;
+    }
+    .massage p{
+        font-size: 25px;
+        font-weight: 600;
+    }
+} 
+
+
+
+
+
+
+
+
+
+
+/*----посхалка------------------------------------------------------------------*/
+#poshalka{
+    font-size: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #6f4e54;
+}
